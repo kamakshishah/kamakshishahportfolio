@@ -114,16 +114,17 @@ body {
 }
 
 header {
-  position: fixed;       /* fixed at top */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-color: #000;
   z-index: 1000;
-  padding: 15px 10%;     /* normal padding */
+  padding: 15px 10%;
   box-sizing: border-box;
-  transition: top 0.4s ease, padding 0.4s ease; /* smooth slide effect */
+  transition: top 0.4s ease;
 }
+
 
 
 /* body padding so content isn’t hidden under header */

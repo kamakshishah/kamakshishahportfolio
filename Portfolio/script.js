@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================
-  // HEADER SLIDE ON SCROLL
+  // HEADER SLIDE ON SCROLL (MOBILE ONLY)
   // ==========================
   const header = document.querySelector('header');
   let prevScrollPos = window.pageYOffset;
@@ -74,16 +74,18 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     const currentScrollPos = window.pageYOffset;
 
-    // ===== Header slide/shrink =====
-    if (prevScrollPos > currentScrollPos) {
-      // Scrolling up → full header
-      header.style.top = "0";
-      header.style.padding = "15px 10%"; // normal padding
+    if (window.innerWidth <= 768) {
+      // Mobile: hide on scroll down, show on scroll up
+      if (prevScrollPos > currentScrollPos) {
+        header.style.top = "0"; // scrolling up → show
+      } else {
+        header.style.top = "-80px"; // scrolling down → hide
+      }
     } else {
-      // Scrolling down → shrink header for slide effect
-      header.style.top = "0"; 
-      header.style.padding = "5px 10%";  // slightly smaller padding
+      // Desktop: always show
+      header.style.top = "0";
     }
+
     prevScrollPos = currentScrollPos;
 
     // ===== Reveal sections =====
