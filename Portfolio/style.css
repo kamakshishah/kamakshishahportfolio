@@ -60,6 +60,106 @@ nav a:hover {
   font-size: 1.3rem;
   cursor: pointer;
 }
+/* HEADER */
+header {
+  position: fixed;   /* stays on top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  z-index: 1000;
+  padding: 15px 10%;
+  box-sizing: border-box;
+}
+
+/* NAV LINKS */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;   /* wrap on small screens */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;       /* keep white */
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 5px 10px;
+}
+
+/* ACTIVE LINK HIGHLIGHT */
+.nav-links li a.active {
+  border-bottom: 2px solid #fff;
+}
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .nav-links li a {
+    font-size: 0.95rem;
+    padding: 5px 6px;
+  }
+}
+
+/* BODY PADDING to prevent header overlap */
+body {
+  padding-top: 70px; /* adjust according to header height */
+}
+
+header {
+  position: fixed;       /* fixed at top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  z-index: 1000;
+  padding: 15px 10%;     /* normal padding */
+  box-sizing: border-box;
+  transition: top 0.4s ease, padding 0.4s ease; /* smooth slide effect */
+}
+
+
+/* body padding so content isn’t hidden under header */
+body {
+  padding-top: 80px; /* adjust based on header height */
+}
+
+/* nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;   /* wrap links on mobile */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 5px 10px;
+}
+
+.nav-links li a.active {
+  border-bottom: 2px solid #fff;
+}
+
+/* mobile adjustments */
+@media (max-width: 768px) {
+  .nav-links li a {
+    font-size: 0.95rem;
+    padding: 5px 6px;
+  }
+}
 
 /* === Hero Section === */
 .hero {
