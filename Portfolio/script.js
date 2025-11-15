@@ -66,27 +66,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================
   // HEADER SLIDE ON SCROLL (MOBILE ONLY)
   // ==========================
-  const header = document.querySelector('header');
-  let prevScrollPos = window.pageYOffset;
+ const header = document.querySelector('header');
+let prevScrollPos = window.pageYOffset;
 
-  const scrollSections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  const currentScrollPos = window.pageYOffset;
 
-  window.addEventListener('scroll', () => {
-    const currentScrollPos = window.pageYOffset;
-
-    if (window.innerWidth <= 768) {
-      // Mobile: hide on scroll down, show on scroll up
-      if (prevScrollPos > currentScrollPos) {
-        header.style.top = "0"; // scrolling up → show
-      } else {
-        header.style.top = "-80px"; // scrolling down → hide
-      }
+  if (window.innerWidth <= 768) {
+    // Mobile: completely hide on scroll down
+    if (prevScrollPos > currentScrollPos) {
+      header.style.top = "0";        // scrolling up → show header
     } else {
-      // Desktop: always show
-      header.style.top = "0";
+      header.style.top = "-100%";    // scrolling down → hide header completely
     }
+  } else {
+    // Desktop: always visible
+    header.style.top = "0";
+  }
 
-    prevScrollPos = currentScrollPos;
+  prevScrollPos = currentScrollPos;
+});
+
 
     // ===== Reveal sections =====
     scrollSections.forEach(section => {
